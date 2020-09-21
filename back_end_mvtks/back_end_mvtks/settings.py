@@ -77,7 +77,12 @@ WSGI_APPLICATION = 'back_end_mvtks.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME':'demo_1',
+        #'NAME': BASE_DIR / 'db.sqlite3',
+        'USER':'sandeep',
+        'PASSWORD':'12d53630',
+        'HOST':'database-1.cywcyakcxwro.ap-south-1.rds.amazonaws.com',
+        'PORT':'5432',
     }
 }
 

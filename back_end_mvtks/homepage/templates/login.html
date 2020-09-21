@@ -1,0 +1,16 @@
+{% load static %}
+
+Login
+<form method="POST" action="">
+<div class="displays">
+{% csrf_token %}
+<input type="text" name="username"  class="form-control"/>
+<input type="password" name="password" class="form-control" />
+<input class="btn login_btn" type="submit" value="Login"/>
+</div>
+{% for message in messages %}
+<p>{{message}}</p>
+{% endfor %}
+</form>
+
+

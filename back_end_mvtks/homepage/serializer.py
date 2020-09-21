@@ -6,10 +6,10 @@ class MoviesSerializer(serializers.ModelSerializer):
  
     class Meta:
         model = Movies
-        fields = '__ALL__'
+        fields = '__all__'
 
 class BookedSerializer(serializers.ModelSerializer):
  
     class Meta:
-        model = Book
-        fields = '__ALL__'
+        model = Booked
+        fields = '__all__'
