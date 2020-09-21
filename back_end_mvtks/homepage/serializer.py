@@ -11,5 +11,5 @@ class MoviesSerializer(serializers.ModelSerializer):
 class BookedSerializer(serializers.ModelSerializer):
  
     class Meta:
-        model = Booked
+        model = Book
         fields = '__ALL__'
