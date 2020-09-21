@@ -14,9 +14,17 @@ from  django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 
 def home(request):
-    a=Movies.objects.values('title','image','genre','city').distinct()
-    serializer=MoviesSerializer(a,many=True)
-    return JsonResponse(serializer.data,safe=False)
+    if request.user.is_authenticated: 
+        a=Movies.objects.values('title','image','genre','city').distinct()
+        serializer=MoviesSerializer(a,many=True)
+        return JsonResponse(serializer.data,safe=False)
+    else:
+        return redirect('login')
+
+def movie_city(request):
+        b=Movies.objects.filter(city="pune").values("title","image","genre").distinct()
+        serializer=MoviesSerializer(b,many=True)
+        return JsonResponse(serializer.data,safe=False)
 
 def  register(request):
     form =CreateUserForm()
@@ -34,6 +42,7 @@ def  register(request):
     
 
 def loggingin(request):
+        logout(request)
         if request.method=="POST":
             username = request.POST.get('username')
             password = request.POST.get('password') 
