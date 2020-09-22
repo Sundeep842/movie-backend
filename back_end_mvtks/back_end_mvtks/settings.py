@@ -25,7 +25,10 @@ SECRET_KEY = 'lklrx#__*s#w$q@arbof(kdxz4_a_8o4fb#9&*mq8u+1dpl#*h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+]
 
 
 # Application definition
@@ -135,11 +138,12 @@ CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
+    
 ]
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost:3000',
 ]
 
 STATICFILES_DIRS=[
-    '/back/back_end_mvtks/homepage/static',
+'\back\back_end_mvtks\homepage\static'
 ]

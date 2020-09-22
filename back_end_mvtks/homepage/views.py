@@ -10,7 +10,7 @@ from  django.contrib.auth import authenticate,logout,login
 from homepage.models import Movies,Booked
 from rest_framework.decorators import api_view
 from  django.contrib.auth.forms import UserCreationForm
-
+import json
 # Create your views here.
 
 def home(request):
@@ -24,7 +24,10 @@ def home(request):
 def movie_city(request):
         b=Movies.objects.filter(city="pune").values("title","image","genre").distinct()
         serializer=MoviesSerializer(b,many=True)
-        return JsonResponse(serializer.data,safe=False)
+        context={'data':serializer.data}
+        #return JsonResponse(serializer.data,safe=False)
+        return render(request,'moviecity.js',context)
+
 
 def  register(request):
     form =CreateUserForm()
@@ -57,3 +60,6 @@ def loggingin(request):
 def loggingout(request):
     logout(request)
     return redirect('logout') 
+
+def book(request):
+    return HttpResponse('Booked')
