@@ -17,7 +17,9 @@ def home(request):
     if request.user.is_authenticated: 
         a=Movies.objects.values('title','image','genre','city').distinct()
         serializer=MoviesSerializer(a,many=True)
-        return JsonResponse(serializer.data,safe=False)
+        context={'data':serializer.data}
+        return render(request,'homepage.js',context)
+        #return JsonResponse(serializer.data,safe=False)
     else:
         return redirect('login')
 
